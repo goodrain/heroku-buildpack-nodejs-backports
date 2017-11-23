@@ -2,7 +2,7 @@
 
 ![heroku-buildpack-featuerd](https://cloud.githubusercontent.com/assets/51578/6953435/52e1af5c-d897-11e4-8712-35fbd4d471b1.png)
 
-云帮 Node.js 语言应用的源码构建核心部分是基于[Heroku buildpack for Node.js](http://devcenter.heroku.com/articles/buildpack) 来实现的。
+云帮 Node.js 语言源码构建核心部分是基于[Heroku buildpack for Node.js](https://github.com/heroku/heroku-buildpack-nodejs) 来实现的。
 
 ## 工作原理
 
@@ -47,4 +47,4 @@
 
 ## 授权
 
-根据 MIT 授权证获得许可。 请参阅LICENSE文件
+根据 MIT 授权获得许可。 请参阅LICENSE文件
