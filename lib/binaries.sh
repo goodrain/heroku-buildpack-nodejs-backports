@@ -13,12 +13,10 @@ install_nodejs() {
 
   if needs_resolution "$version"; then
     echo "Resolving node version ${version:-(latest stable)} via semver.io..."
-    local version=$(curl --silent --get -H "Authorization: Token 5ca196801173be06c7e6ce41d5f7b3b8071e680a" --data-urlencode "range=${version}" http://region.goodrain.me:8888/node/resolve)
-    #local version="0.12.5"
+    local version=$(curl --silent --get --retry 5 --retry-max-time 15 --data-urlencode "range=${version}" "https://nodebin.herokai.com/v1/node/linux-x64/latest.txt" | awk '{print $1}')
   fi
 
   echo "Downloading and installing node $version..."
-  #local download_url="http://s3pository.heroku.com/node/v$version/node-v$version-$os-$cpu.tar.gz"
   local download_url="http://lang.goodrain.me/node/v$version/node-v$version-linux-x64.tar.gz"
   curl "$download_url" -s -o - | tar xzf - -C /tmp
   mv /tmp/node-v$version-linux-x64/* $dir
